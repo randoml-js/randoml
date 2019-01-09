@@ -6,12 +6,12 @@
   "license": "MIT",
   "main": "lib/randoml.min.js",
   "scripts": {
-    "release": "npm run prettier && npm run build:dev && npm run build",
+    "release": "npm run prettier && npm run lint && npm run build:dev && npm run build",
     "build": "webpack --env build",
     "build:dev": "webpack --env dev",
     "watch": "npm run build -- --watch",
     "watch:dev": "npm run build:dev -- --watch",
-    "lint": "eslint ./src --fix",
+    "lint": "eslint './src/**/*.ts' --fix",
     "prettier": "prettier --write 'src/**/*.ts'"
   },
   "repository": {
@@ -47,6 +47,7 @@
     "mock-local-storage": "^1.1.8",
     "prettier": "^1.15.3",
     "typescript": "^3.2.2",
+    "typescript-eslint-parser": "^21.0.2",
     "webpack": "^5.0.0-alpha.5",
     "webpack-cli": "^3.2.1"
   },
