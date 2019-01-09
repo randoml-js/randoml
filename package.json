@@ -1,0 +1,56 @@
+{
+  "name": "randoml",
+  "version": "1.0.0",
+  "description": "Random number library with Machine Learning implementation",
+  "author": "Jakub Biesiada",
+  "license": "MIT",
+  "main": "lib/randoml.min.js",
+  "scripts": {
+    "release": "npm run prettier && npm run build:dev && npm run build",
+    "build": "webpack --env build",
+    "build:dev": "webpack --env dev",
+    "watch": "npm run build -- --watch",
+    "watch:dev": "npm run build:dev -- --watch",
+    "lint": "eslint ./src --fix",
+    "prettier": "prettier --write 'src/**/*.ts'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JB1905/randoml.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "random",
+    "number",
+    "Machine Learning"
+  ],
+  "bugs": {
+    "url": "https://github.com/JB1905/randoml/issues"
+  },
+  "homepage": "https://github.com/JB1905/randoml#readme",
+  "dependencies": {
+    "brain.js": "^1.6.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-typescript": "^7.1.0",
+    "@babel/register": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-add-module-exports": "^1.0.0",
+    "eslint": "^5.12.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "gh-pages": "^2.0.1",
+    "mock-local-storage": "^1.1.8",
+    "prettier": "^1.15.3",
+    "typescript": "^3.2.2",
+    "webpack": "^5.0.0-alpha.5",
+    "webpack-cli": "^3.2.1"
+  },
+  "peerDependencies": {
+    "brain.js": "~1.6.1"
+  }
+}
