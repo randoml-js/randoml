@@ -77,7 +77,7 @@ export default class RandoML {
 
     let condition: boolean = duplicated.length === 0;
 
-    const check = firstCheck && this.checkLength() && this.magicCount();
+    const check: boolean = firstCheck && this.checkLength() && this.magicCount();
 
     if (check) condition = !check;
 
