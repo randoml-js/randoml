@@ -8,6 +8,9 @@ type Options = {
 export default class RandoML {
   private settings: Settings;
   private methods: Methods;
+  private number: number;
+  private min: number;
+  private max: number;
 
   constructor(data: Options) {
     this.settings = data.settings || {};
@@ -16,31 +19,66 @@ export default class RandoML {
     if (typeof this.methods.onInit === 'function') {
       this.methods.onInit();
     }
+
+    this.min = Math.ceil(this.settings.min);
+    this.max = Math.floor(this.settings.max);
   }
 
   public randomize = () => {
-    let unique: boolean = false;
-    let randomNumber: number;
+    if (this.minMax() - this.settings.exclude.length > 0) {
+      let unique: boolean = false;
 
-    const min: number = Math.ceil(this.settings.min);
-    const max: number = Math.floor(this.settings.max);
+      if (typeof this.methods.onRandomize === 'function') {
+        this.methods.onRandomize();
+      }
 
-    if (typeof this.methods.onRandomize === 'function') {
-      this.methods.onRandomize();
-    }
+      do {
+        this.number = Math.floor(Math.random() * this.minMax()) + this.min;
 
-    do {
-      randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+        if (!this.isExcluded(true) && this.checkLength()) {
+          const array: number[] = this.settings.hold;
 
-      const isExcluded: number[] = this.settings.exclude.filter(
-        item => item === randomNumber
-      );
+          this.number = array[Math.floor(array.length * Math.random())];
+        }
 
-      unique = isExcluded.length === 0;
-    } while (!unique);
+        unique = this.isExcluded(false);
+      } while (!unique);
 
-    if (typeof this.methods.onResult === 'function') {
-      this.methods.onResult();
-    }
+      if (typeof this.methods.onResult === 'function') {
+        this.methods.onResult();
+      }
+
+      return this.number;
+    } /*else {
+      console.log('out of range');
+    }*/
+  };
+
+  private minMax = (): number => this.max - this.min + 1;
+
+  private checkLength = (): boolean => {
+    return this.settings.hold && this.settings.hold.length > 0;
+  };
+
+  private magicCount = (): boolean => {
+    const date = new Date().getTime();
+    const exclude = this.settings.exclude.length;
+    const hold = this.settings.hold.length;
+
+    return (this.minMax() - exclude + date) % hold === 0;
+  };
+
+  private isExcluded = (firstCheck: boolean): boolean => {
+    const duplicated = this.settings.exclude.filter(
+      item => item === this.number
+    );
+
+    let condition: boolean = duplicated.length === 0;
+
+    const check = firstCheck && this.checkLength() && this.magicCount();
+
+    if (check) condition = !check;
+
+    return condition;
   };
 }
