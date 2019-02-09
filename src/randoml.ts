@@ -1,5 +1,3 @@
-//import Brain from "brain.js";
-
 import { Settings, Methods } from './types';
 
 type Options = {
@@ -10,19 +8,14 @@ type Options = {
 export default class RandoML {
   private settings: Settings;
   private methods: Methods;
-  //private brain: any;
 
   constructor(data: Options) {
     this.settings = data.settings || {};
     this.methods = data.methods || {};
 
-    //this.randomize();
     if (typeof this.methods.onInit === 'function') {
       this.methods.onInit();
     }
-
-    //localStorage.setItem("exclude", "");
-    //localStorage.setItem("held", "");
   }
 
   public randomize = () => {
@@ -50,6 +43,4 @@ export default class RandoML {
       this.methods.onResult();
     }
   };
-
-  //private neural = () => {};
 }
