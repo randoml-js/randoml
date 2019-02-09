@@ -31,7 +31,10 @@ module.exports = env => {
         {
           test: /\.ts$/,
           loader: 'babel-loader',
-          exclude: /node_modules/
+          exclude: /node_modules/,
+          resolve: {
+            extensions: ['.ts']
+          }
         }
       ]
     }

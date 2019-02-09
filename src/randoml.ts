@@ -13,8 +13,8 @@ export default class RandoML {
   private max: number;
 
   constructor(data: Options) {
-    this.settings = data.settings || {};
-    this.methods = data.methods || {};
+    this.settings = this.extendSettings(data.settings || {});
+    this.methods = data.methods;
 
     if (typeof this.methods.onInit === 'function') {
       this.methods.onInit();
@@ -22,6 +22,20 @@ export default class RandoML {
 
     this.min = Math.ceil(this.settings.min);
     this.max = Math.floor(this.settings.max);
+
+    if (this.min > this.max) {
+      throw 'Minimal value is bigger than maximal value';
+    } else if (this.min === this.max) {
+      throw 'Minimal and maximal values must be different';
+    }
+
+    const filtered: number[] = this.settings.hold.filter(
+      item => item < this.min || item > this.max
+    );
+
+    if (filtered.length > 0) {
+      throw `${filtered.join(', ')} are out of range ${this.min}, ${this.max}`;
+    }
   }
 
   public randomize = () => {
@@ -70,17 +84,38 @@ export default class RandoML {
     return (this.minMax() - exclude + date) % hold === 0;
   };
 
-  private isExcluded = (firstCheck: boolean): boolean => {
+  private isExcluded = (first: boolean): boolean => {
     const duplicated = this.settings.exclude.filter(
       item => item === this.number
     );
 
     let condition: boolean = duplicated.length === 0;
 
-    const check: boolean = firstCheck && this.checkLength() && this.magicCount();
+    const check: boolean = first && this.checkLength() && this.magicCount();
 
     if (check) condition = !check;
 
     return condition;
+  };
+
+  private extendSettings = (settings: Settings): Settings => {
+    const defaultSettings: Settings = {
+      min: 1,
+      max: 15,
+      exclude: [],
+      hold: []
+    };
+
+    const newSettings: Settings = {};
+
+    for (const property in defaultSettings) {
+      if (property in settings) {
+        newSettings[property] = settings[property];
+      } else {
+        newSettings[property] = defaultSettings[property];
+      }
+    }
+
+    return newSettings;
   };
 }
