@@ -41,14 +41,14 @@
     "babel-loader": "^8.0.5",
     "babel-plugin-add-module-exports": "^1.0.0",
     "eslint": "^5.12.1",
-    "eslint-config-prettier": "^3.6.0",
+    "eslint-config-prettier": "^4.0.0",
     "eslint-plugin-prettier": "^3.0.1",
     "gh-pages": "^2.0.1",
     "mock-local-storage": "^1.1.8",
     "prettier": "^1.16.0",
     "typescript": "^3.2.4",
     "typescript-eslint-parser": "^22.0.0",
-    "webpack": "^5.0.0-alpha.5",
+    "webpack": "^4.29.3",
     "webpack-cli": "^3.2.1"
   },
   "peerDependencies": {

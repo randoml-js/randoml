@@ -5,9 +5,14 @@ module.exports = {
   env: {
     browser: true
   },
-  settings: {
-    react: {
-      version: require('./package.json').devDependencies.react
+  parserOptions: {
+    ecmaVersion: 6,
+    sourceType: 'module',
+    ecmaFeatures: {
+      module: true
     }
+  },
+  rules: {
+    'no-unused-vars': ['off']
   }
 };
