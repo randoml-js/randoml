@@ -49,9 +49,11 @@ export default class RandoML {
       }
 
       return this.number;
-    } /*else {
-      console.log('out of range');
-    }*/
+    } else {
+      if (typeof this.methods.onRangeEnd === 'function') {
+        this.methods.onRangeEnd();
+      }
+    }
   };
 
   private minMax = (): number => this.max - this.min + 1;
