@@ -77,15 +77,15 @@ export default class RandoML {
   };
 
   private magicCount = (): boolean => {
-    const date = new Date().getTime();
-    const exclude = this.settings.exclude.length;
-    const hold = this.settings.hold.length;
+    const date: number = new Date().getTime();
+    const exclude: number = this.settings.exclude.length;
+    const hold: number = this.settings.hold.length;
 
     return (this.minMax() - exclude + date) % hold === 0;
   };
 
   private isExcluded = (first: boolean): boolean => {
-    const duplicated = this.settings.exclude.filter(
+    const duplicated: number[] = this.settings.exclude.filter(
       item => item === this.number
     );
 
