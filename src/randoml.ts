@@ -38,7 +38,7 @@ export default class RandoML {
     }
   }
 
-  public randomize = () => {
+  randomize = () => {
     if (this.minMax() - this.settings.exclude.length > 0) {
       let unique: boolean = false;
 
