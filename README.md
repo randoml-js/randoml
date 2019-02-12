@@ -41,7 +41,7 @@ const RandoML = require('randoml');
 ## Options
 ### Settings
 Name | Type | Default | Description | Available options
--|-|-|-
+-|-|-|-|-
 min | number | `1` | minimum random value | number (smaller than `max`)
 max | number | `15` | maxmum random value | number (bigger than `max`)
 exclude | number[] | `null` | numbers excluded from randomize | array of numbers (in range between min and max)
