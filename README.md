@@ -53,7 +53,7 @@ const rand = new RandoML({
 ## Methods
 &bull; Randomize method
 ```js
-RandoML.randomize();
+rand.randomize();
 ```
 
 ## Options
