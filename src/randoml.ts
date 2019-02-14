@@ -1,23 +1,23 @@
-import { Settings, Methods } from './types';
+import { Settings, Callbacks } from './types';
 
 type Options = {
   settings: Settings;
-  methods: Methods;
+  callbacks: Callbacks;
 };
 
 export default class RandoML {
   private settings: Settings;
-  private methods: Methods;
+  private callbacks: Callbacks;
   private number: number;
   private min: number;
   private max: number;
 
   constructor(data: Options) {
     this.settings = this.extendSettings(data.settings || {});
-    this.methods = data.methods;
+    this.callbacks = data.callbacks;
 
-    if (typeof this.methods.onInit === 'function') {
-      this.methods.onInit();
+    if (typeof this.callbacks.onInit === 'function') {
+      this.callbacks.onInit();
     }
 
     this.min = Math.ceil(this.settings.min);
@@ -42,8 +42,8 @@ export default class RandoML {
     if (this.minMax() - this.settings.exclude.length > 0) {
       let unique: boolean = false;
 
-      if (typeof this.methods.onRandomize === 'function') {
-        this.methods.onRandomize();
+      if (typeof this.callbacks.onRandomize === 'function') {
+        this.callbacks.onRandomize();
       }
 
       do {
@@ -58,14 +58,14 @@ export default class RandoML {
         unique = this.isExcluded(false);
       } while (!unique);
 
-      if (typeof this.methods.onResult === 'function') {
-        this.methods.onResult();
+      if (typeof this.callbacks.onResult === 'function') {
+        this.callbacks.onResult();
       }
 
       return this.number;
     } else {
-      if (typeof this.methods.onRangeEnd === 'function') {
-        this.methods.onRangeEnd();
+      if (typeof this.callbacks.onRangeEnd === 'function') {
+        this.callbacks.onRangeEnd();
       }
     }
   };

@@ -1,4 +1,4 @@
-export type Methods = {
+export type Callbacks = {
   onInit?: () => void;
   onRandomize?: () => void;
   onResult?: () => void;

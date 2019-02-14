@@ -1,6 +1,6 @@
 # RandoML Changelog
 
-## 1.0.0 beta 1 (Soon)
+## 0.5.0 beta 1 (2019-02-14)
 #### New Feature
 - added settings: `min`, `max`, `exclude`, `hold`
-- added methods: `onInit`, `onRandomize`, `onResult`, `onRangeEnd`
+- added callbacks: `onInit`, `onRandomize`, `onResult`, `onRangeEnd`

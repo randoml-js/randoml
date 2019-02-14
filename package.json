@@ -1,7 +1,7 @@
 {
   "name": "randoml",
-  "version": "1.0.0-beta.1",
-  "description": "Random number library with Machine Learning implementation",
+  "version": "0.5.0-beta.1",
+  "description": "Random number library",
   "author": "Jakub Biesiada",
   "license": "MIT",
   "main": "lib/randoml.min.js",
@@ -21,16 +21,12 @@
   "keywords": [
     "TypeScript",
     "random",
-    "number",
-    "Machine Learning"
+    "number"
   ],
   "bugs": {
     "url": "https://github.com/JB1905/randoml/issues"
   },
   "homepage": "https://github.com/JB1905/randoml#readme",
-  "dependencies": {
-    "brain.js": "^1.6.1"
-  },
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.3.0",

@@ -38,6 +38,24 @@ import RandoML from 'randoml';
 const RandoML = require('randoml');
 ```
 
+Next use library:
+```js
+const rand = new RandoML({
+  settings: {
+    // options...
+  },
+  callbacks: {
+    // callbacks...
+  }
+});
+```
+
+## Methods
+&bull; Randomize method
+```js
+RandoML.randomize();
+```
+
 ## Options
 ### Settings
 Name | Type | Default | Description | Available options
@@ -47,7 +65,7 @@ max | number | `15` | maxmum random value | number (bigger than `max`)
 exclude | number[] | `null` | numbers excluded from randomize | array of numbers (in range between min and max)
 hold | number[] | `null` | numbers with higher priority (bigger possibility) | array of numbers (in range between min and max)
 
-### Methods
+### Callbacks
 Name | Description | Available options
 -|-|-
 onInit | callback on library init | `() => {}`

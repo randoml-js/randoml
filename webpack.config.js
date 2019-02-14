@@ -16,7 +16,6 @@ module.exports = env => {
   return {
     mode,
     entry: `${__dirname}/src/${libraryName}.ts`,
-    externals: ['brain.js'],
     devtool,
     output: {
       path: `${__dirname}/lib`,
@@ -24,7 +23,8 @@ module.exports = env => {
       library: 'RandoML',
       libraryTarget: 'umd',
       umdNamedDefine: true,
-      globalObject: 'global'
+      globalObject:
+        'typeof window !== "object" ? global.window = global : window'
     },
     module: {
       rules: [
