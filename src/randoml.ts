@@ -1,5 +1,7 @@
 import { Settings, Callbacks } from './types';
 
+import { defaultSettings } from './defaults';
+
 type Options = {
   settings: Settings;
   callbacks: Callbacks;
@@ -98,14 +100,8 @@ export default class RandoML {
     return condition;
   };
 
-  private extendSettings = (settings: Settings): Settings => {
-    const defaultSettings: Settings = {
-      min: 1,
-      max: 15,
-      exclude: [],
-      hold: []
-    };
 
+  private extendSettings = (settings: Settings): Settings => {
     const newSettings: Settings = {};
 
     for (const property in defaultSettings) {
