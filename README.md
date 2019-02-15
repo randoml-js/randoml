@@ -61,7 +61,7 @@ rand.randomize();
 Name | Type | Default | Description | Available options
 -|-|-|-|-
 min | number | `1` | minimum random value | number (smaller than `max`)
-max | number | `15` | maxmum random value | number (bigger than `max`)
+max | number | `15` | maxmum random value | number (bigger than `min`)
 exclude | number[] | `null` | numbers excluded from randomize | array of numbers (in range between min and max)
 hold | number[] | `null` | numbers with higher priority (bigger possibility) | array of numbers (in range between min and max)
 
