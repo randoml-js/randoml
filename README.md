@@ -68,10 +68,10 @@ hold | number[] | `null` | numbers with higher priority (bigger possibility) | a
 ### Callbacks
 Name | Description | Available options
 -|-|-
-onInit | callback on library init | `() => { // code }`
-onRandomize | callback on number randomize | `() => { // code }`
-onResult | callback on randomize result | `() => { // code }`
-onRangeEnd | callback when range length is 0 | `() => { // code }`
+onInit | callback on library init | `() => { /* code */ }`
+onRandomize | callback on number randomize | `() => { /* code */ }`
+onResult | callback on randomize result | `() => { /* code */ }`
+onRangeEnd | callback when range length is 0 | `() => { /* code */ }`
 
 ## License
 This project is licensed under the MIT License © 2019-present Jakub Biesiada
