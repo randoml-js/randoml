@@ -1,7 +1,7 @@
 # RandoML Changelog
 
 ## 0.5.0 (2019-02-27)
-## Bug Fix
+#### Bug Fix
 - fixed bug when props are empty
 
 ## 0.5.0 beta 1 (2019-02-14)
