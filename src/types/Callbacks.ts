@@ -1,6 +1,6 @@
 export type Callbacks = {
-  onInit?: () => void;
-  onRandomize?: () => void;
-  onResult?: () => void;
-  onRangeEnd?: () => void;
+  readonly onInit?: () => void;
+  readonly onRandomize?: () => void;
+  readonly onResult?: () => void;
+  readonly onRangeEnd?: () => void;
 };

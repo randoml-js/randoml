@@ -1,6 +1,6 @@
 export type Settings = {
-  min?: number;
-  max?: number;
-  exclude?: number[];
-  hold?: number[];
+  readonly min?: number;
+  readonly max?: number;
+  readonly exclude?: number[];
+  readonly hold?: number[];
 };

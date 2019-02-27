@@ -14,9 +14,9 @@ export default class RandoML {
   private min: number;
   private max: number;
 
-  constructor(data: Options) {
+  constructor(data: Options | any = {}) {
     this.settings = this.extendSettings(data.settings || {});
-    this.callbacks = data.callbacks;
+    this.callbacks = data.callbacks || {};
 
     if (typeof this.callbacks.onInit === 'function') {
       this.callbacks.onInit();
@@ -99,7 +99,6 @@ export default class RandoML {
 
     return condition;
   };
-
 
   private extendSettings = (settings: Settings): Settings => {
     const newSettings: Settings = {};
