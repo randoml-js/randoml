@@ -4,10 +4,10 @@
 [![NPM downloads](http://img.shields.io/npm/dm/randoml.svg?style=flat-square)](https://www.npmjs.com/package/randoml)
 
 ## About
-RandoML is random library with option to exclude and pickup the priority of number.
+RandoML is a library of random numbers with the option of excluding or increasing the priority of a number.
 
 ## How to Install
-At the beginning install the library in your project via npm:
+First, install the library in your project by npm:
 ```bash
 $ npm install randoml
 ```
@@ -23,7 +23,7 @@ jsDelivr: `https://cdn.jsdelivr.net/npm/randoml/`<br>
 unpkg: `https://unpkg.com/randoml/`
 
 ## Getting Started
-**Connect libary with project using script tag in HTML:**
+**Connect libary to project using script tag in HTML:**
 ```html
 <script src="/path/to/randoml.js"></script>
 ```
