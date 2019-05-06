@@ -1,11 +1,7 @@
-import { Settings, Callbacks } from './types';
+
+import { Options, Settings, Callbacks } from './types';
 
 import { defaultSettings } from './defaults';
-
-type Options = {
-  settings: Settings;
-  callbacks: Callbacks;
-};
 
 export default class RandoML {
   private settings: Settings;
