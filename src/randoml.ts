@@ -1,4 +1,3 @@
-
 import { Options, Settings, Callbacks } from './types';
 
 import { defaultSettings } from './defaults';
