@@ -21,10 +21,7 @@ module.exports = env => {
       path: `${__dirname}/lib`,
       filename: outputFile,
       library: 'RandoML',
-      libraryTarget: 'umd',
-      umdNamedDefine: true,
-      globalObject:
-        'typeof window !== "object" ? global.window = global : window'
+      libraryTarget: 'commonjs2'
     },
     module: {
       rules: [

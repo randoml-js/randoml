@@ -35,7 +35,7 @@ export default class RandoML {
     }
   }
 
-  randomize = () => {
+  randomize() {
     if (this.minMax() - this.settings.exclude.length > 0) {
       let unique: boolean = false;
 
@@ -65,23 +65,23 @@ export default class RandoML {
         this.callbacks.onRangeEnd();
       }
     }
-  };
+  }
 
   private minMax = (): number => this.max - this.min + 1;
 
-  private checkLength = (): boolean => {
+  private checkLength(): boolean {
     return this.settings.hold && this.settings.hold.length > 0;
-  };
+  }
 
-  private magicCount = (): boolean => {
+  private magicCount(): boolean {
     const date: number = new Date().getTime();
     const exclude: number = this.settings.exclude.length;
     const hold: number = this.settings.hold.length;
 
     return (this.minMax() - exclude + date) % hold === 0;
-  };
+  }
 
-  private isExcluded = (first: boolean): boolean => {
+  private isExcluded(first: boolean): boolean {
     const duplicated: number[] = this.settings.exclude.filter(
       item => item === this.number
     );
