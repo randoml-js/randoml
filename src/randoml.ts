@@ -5,9 +5,9 @@ import { defaultSettings } from './defaults';
 export default class RandoML {
   private settings: Settings;
   private callbacks: Callbacks;
-  private number: number;
   private min: number;
   private max: number;
+  private number?: number;
 
   constructor(data: Options | any = {}) {
     this.settings = this.extendSettings(data.settings || {});
