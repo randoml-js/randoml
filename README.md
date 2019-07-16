@@ -8,12 +8,12 @@ RandoML is a library of random numbers with the option of excluding or increasin
 
 ## How to Install
 First, install the library in your project by npm:
-```bash
+```sh
 $ npm install randoml
 ```
 
 Or Yarn:
-```bash
+```sh
 $ yarn add randoml
 ```
 
