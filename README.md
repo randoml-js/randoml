@@ -8,12 +8,12 @@ RandoML is a library of random numbers with the option of excluding or increasin
 
 ## How to Install
 First, install the library in your project by npm:
-```bash
+```sh
 $ npm install randoml
 ```
 
 Or Yarn:
-```bash
+```sh
 $ yarn add randoml
 ```
 
@@ -40,7 +40,7 @@ const RandoML = require('randoml');
 
 Next use library:
 ```js
-const rand = new RandoML({
+const random = new RandoML({
   settings: {
     // options...
   },
@@ -51,9 +51,9 @@ const rand = new RandoML({
 ```
 
 ## Methods
-&bull; Randomize method
+&bull; Choice method
 ```js
-rand.randomize();
+random.choice();
 ```
 
 ## Options
@@ -62,15 +62,15 @@ Name | Type | Default | Description | Available options
 -|-|-|-|-
 min | number | `1` | minimum random value | number (smaller than `max`)
 max | number | `15` | maxmum random value | number (bigger than `min`)
-exclude | number[] | `null` | numbers excluded from randomize | array of numbers (in range between min and max)
+exclude | number[] | `null` | numbers excluded from choice | array of numbers (in range between min and max)
 hold | number[] | `null` | numbers with higher priority (bigger possibility) | array of numbers (in range between min and max)
 
 ### Callbacks
 Name | Description | Available options
 -|-|-
 onInit | callback on library init | `() => { /* code */ }`
-onRandomize | callback on number randomize | `() => { /* code */ }`
-onResult | callback on randomize result | `() => { /* code */ }`
+onChoice | callback on number choice | `() => { /* code */ }`
+onResult | callback on choice result | `() => { /* code */ }`
 onRangeEnd | callback when range length is 0 | `() => { /* code */ }`
 
 ## License

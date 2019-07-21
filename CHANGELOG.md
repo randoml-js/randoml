@@ -1,5 +1,10 @@
 # RandoML Changelog
 
+## 0.6.0 (2019-07-22)
+#### Repository Changes
+- switched from `babel` to `typescript` loader
+- added type definitions to output files
+
 ## 0.5.0 (2019-02-27)
 #### Bug Fix
 - fixed bug when props are empty

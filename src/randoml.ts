@@ -5,11 +5,11 @@ import { defaultSettings } from './defaults';
 export default class RandoML {
   private settings: Settings;
   private callbacks: Callbacks;
-  private number: number;
   private min: number;
   private max: number;
+  private number?: number;
 
-  constructor(data: Options | any = {}) {
+  constructor(data: Options) {
     this.settings = this.extendSettings(data.settings || {});
     this.callbacks = data.callbacks || {};
 
@@ -35,12 +35,12 @@ export default class RandoML {
     }
   }
 
-  randomize = () => {
+  choose() {
     if (this.minMax() - this.settings.exclude.length > 0) {
       let unique: boolean = false;
 
-      if (typeof this.callbacks.onRandomize === 'function') {
-        this.callbacks.onRandomize();
+      if (typeof this.callbacks.onChoice === 'function') {
+        this.callbacks.onChoice();
       }
 
       do {
@@ -65,23 +65,23 @@ export default class RandoML {
         this.callbacks.onRangeEnd();
       }
     }
-  };
+  }
 
   private minMax = (): number => this.max - this.min + 1;
 
-  private checkLength = (): boolean => {
+  private checkLength(): boolean {
     return this.settings.hold && this.settings.hold.length > 0;
-  };
+  }
 
-  private magicCount = (): boolean => {
+  private magicCount(): boolean {
     const date: number = new Date().getTime();
     const exclude: number = this.settings.exclude.length;
     const hold: number = this.settings.hold.length;
 
     return (this.minMax() - exclude + date) % hold === 0;
-  };
+  }
 
-  private isExcluded = (first: boolean): boolean => {
+  private isExcluded(first: boolean): boolean {
     const duplicated: number[] = this.settings.exclude.filter(
       item => item === this.number
     );
@@ -93,12 +93,14 @@ export default class RandoML {
     if (check) condition = !check;
 
     return condition;
-  };
+  }
 
-  private extendSettings = (settings: Settings): Settings => {
-    const newSettings: Settings = {};
+  private extendSettings(settings: Settings): Settings {
+    const newSettings = {} as any;
 
-    for (const property in defaultSettings) {
+    let property: keyof Settings;
+
+    for (property in defaultSettings) {
       if (property in settings) {
         newSettings[property] = settings[property];
       } else {
@@ -107,5 +109,5 @@ export default class RandoML {
     }
 
     return newSettings;
-  };
+  }
 }
