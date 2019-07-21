@@ -35,12 +35,12 @@ export default class RandoML {
     }
   }
 
-  randomize() {
+  choose() {
     if (this.minMax() - this.settings.exclude.length > 0) {
       let unique: boolean = false;
 
-      if (typeof this.callbacks.onRandomize === 'function') {
-        this.callbacks.onRandomize();
+      if (typeof this.callbacks.onChoice === 'function') {
+        this.callbacks.onChoice();
       }
 
       do {
@@ -93,12 +93,14 @@ export default class RandoML {
     if (check) condition = !check;
 
     return condition;
-  };
+  }
 
-  private extendSettings = (settings: Settings): Settings => {
-    const newSettings: Settings = {};
+  private extendSettings(settings: Settings): Settings {
+    const newSettings = {} as any;
 
-    for (const property in defaultSettings) {
+    let property: keyof Settings;
+
+    for (property in defaultSettings) {
       if (property in settings) {
         newSettings[property] = settings[property];
       } else {
@@ -107,5 +109,5 @@ export default class RandoML {
     }
 
     return newSettings;
-  };
+  }
 }
