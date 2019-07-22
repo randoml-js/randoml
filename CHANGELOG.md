@@ -5,6 +5,10 @@
 - switched from `babel` to `typescript` loader
 - added type definitions to output files
 
+#### Breaking Changes
+- renamed `randomize` method to `choice`
+- renamed `onRandomize` callback to `onChoice`
+
 ## 0.5.0 (2019-02-27)
 #### Bug Fix
 - fixed bug when props are empty
