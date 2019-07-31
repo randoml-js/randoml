@@ -5,7 +5,7 @@
     "module": "commonjs",
     "checkJs": false,
     "declaration": true,
-    "outDir": "./lib",
+    "outDir": "lib",
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true
