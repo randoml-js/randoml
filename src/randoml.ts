@@ -35,7 +35,7 @@ export default class RandoML {
     }
   }
 
-  choose() {
+  public choose() {
     if (this.minMax() - this.settings.exclude.length > 0) {
       let unique: boolean = false;
 
