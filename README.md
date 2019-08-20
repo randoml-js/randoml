@@ -51,9 +51,9 @@ const random = new RandoML({
 ```
 
 ## Methods
-**&bull; Choice:**
+**&bull; Choose:**
 ```js
-random.choice();
+random.choose();
 ```
 
 ## Options

@@ -6,7 +6,7 @@
 - added type definitions to output files
 
 #### Breaking Changes
-- renamed `randomize` method to `choice`
+- renamed `randomize` method to `choose`
 - renamed `onRandomize` callback to `onChoice`
 
 ## 0.5.0 (2019-02-27)
