@@ -26,7 +26,7 @@ export default class RandoML {
       throw 'Minimal and maximal values must be different';
     }
 
-    const filtered: number[] = this.settings.hold.filter(
+    const filtered = this.settings.hold.filter(
       item => item < this.min || item > this.max
     );
 
@@ -37,7 +37,7 @@ export default class RandoML {
 
   public choose() {
     if (this.minMax() - this.settings.exclude.length > 0) {
-      let unique: boolean = false;
+      let unique = false;
 
       if (typeof this.callbacks.onChoice === 'function') {
         this.callbacks.onChoice();
@@ -47,7 +47,7 @@ export default class RandoML {
         this.number = Math.floor(Math.random() * this.minMax()) + this.min;
 
         if (!this.isExcluded(true) && this.checkLength()) {
-          const array: number[] = this.settings.hold;
+          const array = this.settings.hold;
 
           this.number = array[Math.floor(array.length * Math.random())];
         }
@@ -67,28 +67,28 @@ export default class RandoML {
     }
   }
 
-  private minMax = (): number => this.max - this.min + 1;
+  private minMax = () => this.max - this.min + 1;
 
-  private checkLength(): boolean {
+  private checkLength() {
     return this.settings.hold && this.settings.hold.length > 0;
   }
 
-  private magicCount(): boolean {
-    const date: number = new Date().getTime();
-    const exclude: number = this.settings.exclude.length;
-    const hold: number = this.settings.hold.length;
+  private magicCount() {
+    const date = new Date().getTime();
+    const exclude = this.settings.exclude.length;
+    const hold = this.settings.hold.length;
 
     return (this.minMax() - exclude + date) % hold === 0;
   }
 
-  private isExcluded(first: boolean): boolean {
-    const duplicated: number[] = this.settings.exclude.filter(
+  private isExcluded(first: boolean) {
+    const duplicated = this.settings.exclude.filter(
       item => item === this.number
     );
 
-    let condition: boolean = duplicated.length === 0;
+    let condition = duplicated.length === 0;
 
-    const check: boolean = first && this.checkLength() && this.magicCount();
+    const check = first && this.checkLength() && this.magicCount();
 
     if (check) condition = !check;
 
