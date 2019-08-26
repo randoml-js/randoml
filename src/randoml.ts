@@ -95,7 +95,7 @@ export default class RandoML {
     return condition;
   }
 
-  private extendSettings(settings: Settings) {
+  private extendSettings(settings: Settings): Settings {
     const newSettings = {} as any;
 
     let property: keyof Settings;
