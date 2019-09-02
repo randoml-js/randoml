@@ -23,6 +23,7 @@ module.exports = env => {
       library: 'RandoML',
       libraryTarget: 'commonjs2'
     },
+    externals: ['brain.js'],
     module: {
       rules: [
         {

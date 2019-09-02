@@ -1,4 +1,4 @@
-import { Options, Settings, Callbacks } from './types';
+import { Options, Settings, Callbacks, Training } from './types';
 
 import { defaultSettings } from './defaults';
 
@@ -93,6 +93,18 @@ export default class RandoML {
     if (check) condition = !check;
 
     return condition;
+  }
+
+  public predict(trainings: Training[], numbers: number[]) {
+    import('brain.js').then(brain => {
+      const net = new brain.NeuralNetwork({
+        hiddenLayers: [3]
+      });
+
+      net.train(trainings);
+
+      return net.run(numbers);
+    });
   }
 
   private extendSettings(settings: Settings): Settings {

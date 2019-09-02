@@ -1,4 +1,4 @@
-import { Options } from './types';
+import { Options, Training } from './types';
 export default class RandoML {
     private settings;
     private callbacks;
@@ -11,5 +11,6 @@ export default class RandoML {
     private checkLength;
     private magicCount;
     private isExcluded;
+    predict(trainings: Training[], numbers: number[]): void;
     private extendSettings;
 }
