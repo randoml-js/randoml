@@ -9,7 +9,7 @@ export default class RandoML {
   private max: number;
   private number?: number;
 
-  constructor(data: Options) {
+  constructor(data: Options = {}) {
     this.settings = this.extendSettings(data.settings || {});
     this.callbacks = data.callbacks || {};
 
