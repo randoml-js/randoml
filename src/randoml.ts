@@ -17,8 +17,8 @@ export default class RandoML {
       this.callbacks.onInit();
     }
 
-    this.min = Math.ceil(this.settings.min);
-    this.max = Math.floor(this.settings.max);
+    this.min = Math.ceil(this.settings.min!);
+    this.max = Math.floor(this.settings.max!);
 
     if (this.min > this.max) {
       throw 'Minimal value is bigger than maximal value';
@@ -26,7 +26,7 @@ export default class RandoML {
       throw 'Minimal and maximal values must be different';
     }
 
-    const filtered = this.settings.hold.filter(
+    const filtered = this.settings.hold!.filter(
       item => item < this.min || item > this.max
     );
 
@@ -36,7 +36,7 @@ export default class RandoML {
   }
 
   public choose() {
-    if (this.minMax() - this.settings.exclude.length > 0) {
+    if (this.minMax() - this.settings.exclude!.length > 0) {
       let unique = false;
 
       if (typeof this.callbacks.onChoice === 'function') {
@@ -47,7 +47,7 @@ export default class RandoML {
         this.number = Math.floor(Math.random() * this.minMax()) + this.min;
 
         if (!this.isExcluded(true) && this.checkLength()) {
-          const array = this.settings.hold;
+          const array = this.settings.hold!;
 
           this.number = array[Math.floor(array.length * Math.random())];
         }
@@ -75,14 +75,14 @@ export default class RandoML {
 
   private magicCount() {
     const date = new Date().getTime();
-    const exclude = this.settings.exclude.length;
-    const hold = this.settings.hold.length;
+    const exclude = this.settings.exclude!.length;
+    const hold = this.settings.hold!.length;
 
     return (this.minMax() - exclude + date) % hold === 0;
   }
 
   private isExcluded(first: boolean) {
-    const duplicated = this.settings.exclude.filter(
+    const duplicated = this.settings.exclude!.filter(
       item => item === this.number
     );
 

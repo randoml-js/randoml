@@ -5,7 +5,7 @@ export default class RandoML {
     private min;
     private max;
     private number?;
-    constructor(data: Options);
+    constructor(data?: Options);
     choose(): number | undefined;
     private minMax;
     private checkLength;
