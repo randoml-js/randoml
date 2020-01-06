@@ -1,5 +1,9 @@
 # RandoML Changelog
 
+## 1.0.0 (2019-xx-xx)
+#### New Feature
+- added predict method
+
 ## 0.6.0 (2019-07-22)
 #### Repository Changes
 - switched from `babel` to `typescript` loader

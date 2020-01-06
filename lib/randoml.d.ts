@@ -11,6 +11,6 @@ export default class RandoML {
     private checkLength;
     private magicCount;
     private isExcluded;
-    predict(trainings: Training[], numbers: number[]): void;
+    predict(trainings: Training[], numbers: number[]): number[];
     private extendSettings;
 }

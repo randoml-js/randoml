@@ -96,6 +96,8 @@ export default class RandoML {
   }
 
   public predict(trainings: Training[], numbers: number[]) {
+    let prediction: number[];
+
     import('brain.js').then(brain => {
       const net = new brain.NeuralNetwork({
         hiddenLayers: [3]
@@ -103,8 +105,10 @@ export default class RandoML {
 
       net.train(trainings);
 
-      return net.run(numbers);
+      prediction = net.run(numbers);
     });
+
+    return prediction!;
   }
 
   private extendSettings(settings: Settings): Settings {
