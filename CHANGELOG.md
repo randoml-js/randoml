@@ -1,8 +1,12 @@
 # RandoML Changelog
 
-## 1.0.0 (2019-xx-xx)
+## 1.0.0 (2020-xx-xx)
 #### New Feature
-- added predict method
+- add predict method
+
+#### Repository Changes
+- replaced `Webpack` with `Rollup`
+- added module output
 
 ## 0.6.0 (2019-07-22)
 #### Repository Changes
