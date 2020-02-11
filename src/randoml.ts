@@ -21,9 +21,9 @@ export default class RandoML {
     this.max = Math.floor(this.settings.max!);
 
     if (this.min > this.max) {
-      throw 'Minimal value is bigger than maximal value';
+      throw 'The minimum value must be less than the maximum value';
     } else if (this.min === this.max) {
-      throw 'Minimal and maximal values must be different';
+      throw 'The minimum and maximum values ​​must be different';
     }
 
     const filtered = this.settings.hold!.filter(

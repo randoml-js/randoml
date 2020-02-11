@@ -52,7 +52,7 @@ describe('init with hold numbers', () => {
   test('outputs with hold numbers', () => {
     const test = [];
 
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < 20; i++) {
       test.push(rand.choose());
     }
 
@@ -61,43 +61,43 @@ describe('init with hold numbers', () => {
 });
 
 describe('init with min number greater than max', () => {
-  const rand = new RandoML({
-    settings: {
-      min: 3,
-      max: 1,
-      hold: [1, 4]
-    }
-  });
-
   test('should return error', () => {
-    expect(rand.choose()).toThrow();
+    expect(() => {
+      new RandoML({
+        settings: {
+          min: 3,
+          max: 1,
+          hold: [1, 4]
+        }
+      });
+    }).toThrow('The minimum value must be less than the maximum value');
   });
 });
 
 describe('init with min number equal to max', () => {
-  const rand = new RandoML({
-    settings: {
-      min: 3,
-      max: 3
-    }
-  });
-
   test('should return error', () => {
-    expect(rand.choose()).toThrow();
+    expect(() => {
+      new RandoML({
+        settings: {
+          min: 3,
+          max: 3
+        }
+      });
+    }).toThrow('The minimum and maximum values ​​must be different');
   });
 });
 
 describe('init with hold numer out of range', () => {
-  const rand = new RandoML({
-    settings: {
-      min: -3,
-      max: 10,
-      hold: [1, 5, 12]
-    }
-  });
-
   test('should return error', () => {
-    expect(rand.choose()).toThrow('12 are out of range -3, 10');
+    expect(() => {
+      new RandoML({
+        settings: {
+          min: -3,
+          max: 10,
+          hold: [1, 5, 12]
+        }
+      });
+    }).toThrow('12 are out of range -3, 10');
   });
 });
 
