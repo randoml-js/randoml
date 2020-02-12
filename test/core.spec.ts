@@ -100,9 +100,3 @@ describe('init with hold numer out of range', () => {
     }).toThrow('12 are out of range -3, 10');
   });
 });
-
-// describe('predict numbers', () => {
-//   test('should', () => {[
-//     expect().toBe()
-//   ]})
-// })
