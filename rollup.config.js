@@ -18,6 +18,5 @@ export default {
       sourcemap: true
     }
   ],
-  plugins: [resolve(), typescript(), terser()],
-  external: Object.keys(pkg.dependencies)
+  plugins: [resolve(), typescript(), terser()]
 };

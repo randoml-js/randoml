@@ -1,6 +1,6 @@
 {
   "name": "randoml",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.1",
   "description": "RandoML is a library of random numbers with the option of excluding or increasing the priority of a number",
   "author": "Jakub Biesiada",
   "license": "MIT",
@@ -32,9 +32,6 @@
     "url": "https://github.com/JB1905/randoml/issues"
   },
   "homepage": "https://github.com/JB1905/randoml#readme",
-  "dependencies": {
-    "brain.js": "^1.6.1"
-  },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^7.1.1",
     "@types/jest": "^25.1.2",

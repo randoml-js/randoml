@@ -56,11 +56,6 @@ const random = new RandoML({
 random.choose();
 ```
 
-**&bull; Predict:**
-```js
-random.predict(/* trainings */, /* numbers */);
-```
-
 ## Options
 ### Settings
 Name | Type | Default | Description | Available options
