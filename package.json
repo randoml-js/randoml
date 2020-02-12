@@ -1,20 +1,20 @@
 {
   "name": "randoml",
-  "version": "0.6.0",
+  "version": "1.0.0",
   "description": "RandoML is a library of random numbers with the option of excluding or increasing the priority of a number",
   "author": "Jakub Biesiada",
   "license": "MIT",
-  "main": "lib/randoml.min.js",
+  "main": "lib/randoml.cjs.js",
+  "module": "lib/randoml.esm.js",
   "types": "lib/randoml.d.ts",
   "scripts": {
-    "release": "npm run prettier && npm run lint && npm run build:dev && npm run build",
-    "build": "webpack --env build",
-    "build:dev": "webpack --env dev",
+    "release": "rimraf lib/* && npm run prettier && npm run lint && npm run build",
+    "build": "rollup -c",
+    "test": "jest --coverage",
     "watch": "npm run build -- --watch",
-    "watch:dev": "npm run build:dev -- --watch",
+    "watch:test": "npm run test -- --watch",
     "lint": "eslint 'src/**/*.ts' --fix",
-    "prettier": "prettier --write 'src/**/*.ts'",
-    "test": "jest --coverage"
+    "prettier": "prettier --write 'src/**/*.ts'"
   },
   "repository": {
     "type": "git",
@@ -23,25 +23,37 @@
   "keywords": [
     "TypeScript",
     "random",
-    "number"
+    "number",
+    "exclude",
+    "library",
+    "machine learning"
   ],
   "bugs": {
     "url": "https://github.com/JB1905/randoml/issues"
   },
   "homepage": "https://github.com/JB1905/randoml#readme",
+  "dependencies": {
+    "brain.js": "^1.6.1"
+  },
   "devDependencies": {
-    "@types/jest": "^24.0.15",
-    "@typescript-eslint/parser": "^1.12.0",
-    "eslint": "^6.0.1",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "jest": "^24.8.0",
-    "prettier": "^1.18.2",
-    "ts-jest": "^24.0.2",
-    "ts-loader": "^6.0.4",
-    "typescript": "^3.5.3",
-    "webpack": "^4.36.1",
-    "webpack-cli": "^3.3.6"
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@types/jest": "^25.1.2",
+    "@types/node": "^13.7.1",
+    "@typescript-eslint/parser": "^2.19.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
+    "rollup-plugin-terser": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.26.0",
+    "ts-jest": "^25.2.0",
+    "typescript": "^3.7.5"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts?$": "ts-jest"
+    }
   },
   "husky": {
     "hooks": {

@@ -1,4 +1,4 @@
-import { Options, Settings, Callbacks } from './types';
+import { Options, Settings, Callbacks, Training } from './types';
 
 import { defaultSettings } from './defaults';
 
@@ -9,7 +9,7 @@ export default class RandoML {
   private max: number;
   private number?: number;
 
-  constructor(data: Options) {
+  constructor(data = {} as Options) {
     this.settings = this.extendSettings(data.settings || {});
     this.callbacks = data.callbacks || {};
 
@@ -17,16 +17,16 @@ export default class RandoML {
       this.callbacks.onInit();
     }
 
-    this.min = Math.ceil(this.settings.min);
-    this.max = Math.floor(this.settings.max);
+    this.min = Math.ceil(this.settings.min!);
+    this.max = Math.floor(this.settings.max!);
 
     if (this.min > this.max) {
-      throw 'Minimal value is bigger than maximal value';
+      throw 'The minimum value must be less than the maximum value';
     } else if (this.min === this.max) {
-      throw 'Minimal and maximal values must be different';
+      throw 'The minimum and maximum values ​​must be different';
     }
 
-    const filtered: number[] = this.settings.hold.filter(
+    const filtered = this.settings.hold!.filter(
       item => item < this.min || item > this.max
     );
 
@@ -35,9 +35,9 @@ export default class RandoML {
     }
   }
 
-  choose() {
-    if (this.minMax() - this.settings.exclude.length > 0) {
-      let unique: boolean = false;
+  public choose() {
+    if (this.minMax() - this.settings.exclude!.length > 0) {
+      let unique = false;
 
       if (typeof this.callbacks.onChoice === 'function') {
         this.callbacks.onChoice();
@@ -47,7 +47,7 @@ export default class RandoML {
         this.number = Math.floor(Math.random() * this.minMax()) + this.min;
 
         if (!this.isExcluded(true) && this.checkLength()) {
-          const array: number[] = this.settings.hold;
+          const array = this.settings.hold!;
 
           this.number = array[Math.floor(array.length * Math.random())];
         }
@@ -67,32 +67,48 @@ export default class RandoML {
     }
   }
 
-  private minMax = (): number => this.max - this.min + 1;
+  private minMax = () => this.max - this.min + 1;
 
-  private checkLength(): boolean {
+  private checkLength() {
     return this.settings.hold && this.settings.hold.length > 0;
   }
 
-  private magicCount(): boolean {
-    const date: number = new Date().getTime();
-    const exclude: number = this.settings.exclude.length;
-    const hold: number = this.settings.hold.length;
+  private magicCount() {
+    const date = new Date().getTime();
+    const exclude = this.settings.exclude!.length;
+    const hold = this.settings.hold!.length;
 
     return (this.minMax() - exclude + date) % hold === 0;
   }
 
-  private isExcluded(first: boolean): boolean {
-    const duplicated: number[] = this.settings.exclude.filter(
+  private isExcluded(first: boolean) {
+    const duplicated = this.settings.exclude!.filter(
       item => item === this.number
     );
 
-    let condition: boolean = duplicated.length === 0;
+    let condition = duplicated.length === 0;
 
-    const check: boolean = first && this.checkLength() && this.magicCount();
+    const check = first && this.checkLength() && this.magicCount();
 
     if (check) condition = !check;
 
     return condition;
+  }
+
+  public predict(trainings: Training[], numbers: number[]) {
+    let prediction: number[];
+
+    import('brain.js').then(brain => {
+      const net = new brain.NeuralNetwork({
+        hiddenLayers: [3]
+      });
+
+      net.train(trainings);
+
+      prediction = net.run(numbers);
+    });
+
+    return prediction!;
   }
 
   private extendSettings(settings: Settings): Settings {
