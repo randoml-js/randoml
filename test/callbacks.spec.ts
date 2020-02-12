@@ -1,4 +1,4 @@
-import RandoML from '../src/randoml';
+import RandoML from '../src';
 
 describe('onInit callback', () => {
   let done = false;

@@ -1,4 +1,4 @@
-import RandoML from '../src/randoml';
+import RandoML from '../src';
 
 describe('init with default values', () => {
   const rand = new RandoML();
