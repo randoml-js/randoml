@@ -1,5 +1,9 @@
 # RandoML Changelog
 
+## 1.0.0 beta 2 (2020-02-12)
+#### Bug Fix
+- added missing types file
+
 ## 0.7.0 beta 1 / 1.0.0 beta 1 (2020-02-12)
 #### Repository Changes
 - replaced `Webpack` with `Rollup`

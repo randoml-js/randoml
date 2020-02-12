@@ -1,12 +1,12 @@
 {
   "name": "randoml",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "RandoML is a library of random numbers with the option of excluding or increasing the priority of a number",
   "author": "Jakub Biesiada",
   "license": "MIT",
   "main": "lib/randoml.cjs.js",
   "module": "lib/randoml.esm.js",
-  "types": "lib/randoml.d.ts",
+  "types": "lib/index.d.ts",
   "scripts": {
     "release": "rimraf lib/* && npm run prettier && npm run lint && npm run build",
     "build": "rollup -c",
