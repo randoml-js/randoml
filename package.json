@@ -1,6 +1,6 @@
 {
   "name": "randoml",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0",
   "description": "RandoML is a library of random numbers with the option of excluding or increasing the priority of a number",
   "author": "Jakub Biesiada",
   "license": "MIT",
