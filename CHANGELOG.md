@@ -4,7 +4,7 @@
 #### New Feature
 - add predict method
 
-## 1.0.0 beta 2 (2020-02-12)
+## 1.0.0 beta 2 / 1.0.0 (2020-02-12)
 #### Bug Fix
 - added missing types file
 
