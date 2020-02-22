@@ -101,8 +101,8 @@ describe('init with hold numer out of range', () => {
   });
 });
 
-describe('predict numbers', () => {
-  it('should predict value', () => {
-    expect().toBe();
-  });
-});
+// describe('predict numbers', () => {
+//   it('should predict value', () => {
+//     expect().toBe();
+//   });
+// });
