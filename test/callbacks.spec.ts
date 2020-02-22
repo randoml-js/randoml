@@ -11,7 +11,7 @@ describe('onInit callback', () => {
     }
   });
 
-  test('it should call on init', () => {
+  it('it should call on init', () => {
     expect(done).toBe(true);
   });
 });
@@ -33,7 +33,7 @@ describe('onChoice callback', () => {
 
   rand.choose();
 
-  test('it should call on choice', () => {
+  it('it should call on choice', () => {
     expect(checkChoice).toBe(true);
     expect(checkResult).toBe(true);
   });
@@ -57,7 +57,7 @@ describe('onRangeEnd callback', () => {
 
   rand.choose();
 
-  test('it should call on end of range', () => {
+  it('it should call on end of range', () => {
     expect(done).toBe(true);
   });
 });

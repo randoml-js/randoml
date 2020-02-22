@@ -3,7 +3,7 @@ import RandoML from '../src';
 describe('init with default values', () => {
   const rand = new RandoML();
 
-  test('should return output in range', () => {
+  it('should return output in range', () => {
     expect(rand.choose()).toBeGreaterThanOrEqual(1);
     expect(rand.choose()).toBeLessThanOrEqual(15);
   });
@@ -18,7 +18,7 @@ describe('init with correct values', () => {
     }
   });
 
-  test('should return output in range', () => {
+  it('should return output in range', () => {
     for (let i = 0; i < 10; i++) {
       expect(rand.choose()).toBeGreaterThanOrEqual(20);
       expect(rand.choose()).toBeLessThanOrEqual(30);
@@ -35,7 +35,7 @@ describe('init with empty range', () => {
     }
   });
 
-  test('should return error', () => {
+  it('should return error', () => {
     expect(rand.choose()).toBe(undefined);
   });
 });
@@ -49,7 +49,7 @@ describe('init with hold numbers', () => {
     }
   });
 
-  test('outputs with hold numbers', () => {
+  it('outputs with hold numbers', () => {
     const test = [];
 
     for (let i = 0; i < 20; i++) {
@@ -61,7 +61,7 @@ describe('init with hold numbers', () => {
 });
 
 describe('init with min number greater than max', () => {
-  test('should return error', () => {
+  it('should return error', () => {
     expect(() => {
       new RandoML({
         settings: {
@@ -75,7 +75,7 @@ describe('init with min number greater than max', () => {
 });
 
 describe('init with min number equal to max', () => {
-  test('should return error', () => {
+  it('should return error', () => {
     expect(() => {
       new RandoML({
         settings: {
@@ -88,7 +88,7 @@ describe('init with min number equal to max', () => {
 });
 
 describe('init with hold numer out of range', () => {
-  test('should return error', () => {
+  it('should return error', () => {
     expect(() => {
       new RandoML({
         settings: {
@@ -101,8 +101,8 @@ describe('init with hold numer out of range', () => {
   });
 });
 
-// describe('predict numbers', () => {
-//   test('should', () => {[
-//     expect().toBe()
-//   ]})
-// })
+describe('predict numbers', () => {
+  it('should predict value', () => {
+    expect().toBe();
+  });
+});
