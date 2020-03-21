@@ -27,7 +27,7 @@ export default class RandoML {
     }
 
     const filtered = this.settings.hold!.filter(
-      item => item < this.min || item > this.max
+      (item) => item < this.min || item > this.max
     );
 
     if (filtered.length > 0) {
@@ -83,7 +83,7 @@ export default class RandoML {
 
   private isExcluded(first: boolean) {
     const duplicated = this.settings.exclude!.filter(
-      item => item === this.number
+      (item) => item === this.number
     );
 
     let condition = duplicated.length === 0;
@@ -98,9 +98,9 @@ export default class RandoML {
   public predict(trainings: Training[], numbers: number[]) {
     let prediction: number[];
 
-    import('brain.js').then(brain => {
+    import('brain.js').then((brain) => {
       const net = new brain.NeuralNetwork({
-        hiddenLayers: [3]
+        hiddenLayers: [3],
       });
 
       net.train(trainings);
