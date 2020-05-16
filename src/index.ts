@@ -37,7 +37,7 @@ export default class RandoML {
 
   public choose() {
     if (this.minMax() - this.settings.exclude!.length > 0) {
-      let unique = false;
+      let isUnique = false;
 
       if (typeof this.callbacks.onChoice === 'function') {
         this.callbacks.onChoice();
@@ -46,14 +46,14 @@ export default class RandoML {
       do {
         this.number = Math.floor(Math.random() * this.minMax()) + this.min;
 
-        if (!this.isExcluded(true) && this.checkLength()) {
+        if (!this.checkIsExcluded(true) && this.checkLength()) {
           const array = this.settings.hold!;
 
           this.number = array[Math.floor(array.length * Math.random())];
         }
 
-        unique = this.isExcluded(false);
-      } while (!unique);
+        isUnique = this.checkIsExcluded(false);
+      } while (!isUnique);
 
       if (typeof this.callbacks.onResult === 'function') {
         this.callbacks.onResult();
@@ -81,14 +81,14 @@ export default class RandoML {
     return (this.minMax() - exclude + date) % hold === 0;
   }
 
-  private isExcluded(first: boolean) {
-    const duplicated = this.settings.exclude!.filter(
+  private checkIsExcluded(isFirstCheck: boolean) {
+    const duplicatedItems = this.settings.exclude!.filter(
       (item) => item === this.number
     );
 
-    let condition = duplicated.length === 0;
+    let condition = duplicatedItems.length === 0;
 
-    const check = first && this.checkLength() && this.magicCount();
+    const check = isFirstCheck && this.checkLength() && this.magicCount();
 
     if (check) condition = !check;
 
