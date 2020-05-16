@@ -1,10 +1,10 @@
-# [RandoML](https://github.com/jb1905/randoml)
+# [RandoML](https://github.com/randoml-js/randoml)
 
 [![NPM version](http://img.shields.io/npm/v/randoml.svg?style=flat-square)](https://www.npmjs.com/package/randoml)
 [![NPM downloads](http://img.shields.io/npm/dm/randoml.svg?style=flat-square)](https://www.npmjs.com/package/randoml)
 
 ## About
-RandoML is a library of random numbers with the option of excluding or increasing the priority of a number.
+RandoML is a random number library with option to disable or increase number priority.
 
 ## How to Install
 First, install the library in your project by npm:
