@@ -1,4 +1,4 @@
-export { Settings } from './Settings';
-export { Callbacks } from './Callbacks';
-export { Options } from './Options';
-export { Training } from './Training';
+export type { Settings } from './Settings';
+export type { Callbacks } from './Callbacks';
+export type { Options } from './Options';
+export type { Training } from './Training';

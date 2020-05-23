@@ -7,8 +7,8 @@ describe('onInit callback', () => {
     callbacks: {
       onInit: () => {
         done = true;
-      }
-    }
+      },
+    },
   });
 
   it('it should call on init', () => {
@@ -27,8 +27,8 @@ describe('onChoice callback', () => {
       },
       onResult: () => {
         checkResult = true;
-      }
-    }
+      },
+    },
   });
 
   rand.choose();
@@ -46,13 +46,13 @@ describe('onRangeEnd callback', () => {
     settings: {
       min: 1,
       max: 2,
-      exclude: [1, 2]
+      exclude: [1, 2],
     },
     callbacks: {
       onRangeEnd: () => {
         done = true;
-      }
-    }
+      },
+    },
   });
 
   rand.choose();

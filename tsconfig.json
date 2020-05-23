@@ -5,6 +5,7 @@
     "lib": ["es2015", "dom"],
     "checkJs": false,
     "declaration": true,
+    "strictNullChecks": false,
     "outDir": "lib",
     "strict": true,
     "moduleResolution": "node",
