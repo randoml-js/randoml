@@ -5,8 +5,10 @@ describe('core functions', () => {
     const rand = new RandoML();
 
     for (let i = 0; i < 10; i++) {
-      expect(rand.choose()).toBeGreaterThanOrEqual(1);
-      expect(rand.choose()).toBeLessThanOrEqual(15);
+      const choice = rand.choose();
+
+      expect(choice).toBeGreaterThanOrEqual(1);
+      expect(choice).toBeLessThanOrEqual(15);
     }
   });
 
@@ -20,8 +22,10 @@ describe('core functions', () => {
     });
 
     for (let i = 0; i < 10; i++) {
-      expect(rand.choose()).toBeGreaterThanOrEqual(20);
-      expect(rand.choose()).toBeLessThanOrEqual(30);
+      const choice = rand.choose();
+
+      expect(choice).toBeGreaterThanOrEqual(20);
+      expect(choice).toBeLessThanOrEqual(30);
     }
   });
 
