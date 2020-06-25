@@ -67,7 +67,7 @@ const random = new RandoML({
 random.choose();
 ```
 
-**&bull; Predict:**
+**&bull; Predict (Available Soon):**
 
 ```js
 random.predict(/* trainings */, /* numbers */);
