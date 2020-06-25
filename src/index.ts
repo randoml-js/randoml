@@ -1,4 +1,4 @@
-import { Options, Settings, Callbacks, Training } from './types';
+import type { Options, Settings, Callbacks, Training } from './types';
 
 import { defaultSettings } from './defaults';
 
@@ -7,7 +7,7 @@ export default class RandoML {
   private callbacks: Callbacks;
   private min: number;
   private max: number;
-  private number?: number;
+  private value?: number;
 
   constructor(data = {} as Options) {
     this.settings = this.extendSettings(data.settings || {});
@@ -17,8 +17,8 @@ export default class RandoML {
       this.callbacks.onInit();
     }
 
-    this.min = Math.ceil(this.settings.min!);
-    this.max = Math.floor(this.settings.max!);
+    this.min = Math.ceil(this.settings.min);
+    this.max = Math.floor(this.settings.max);
 
     if (this.min > this.max) {
       throw 'The minimum value must be less than the maximum value';
@@ -26,8 +26,8 @@ export default class RandoML {
       throw 'The minimum and maximum values ​​must be different';
     }
 
-    const filtered = this.settings.hold!.filter(
-      item => item < this.min || item > this.max
+    const filtered = this.settings.hold.filter(
+      (item) => item < this.min || item > this.max
     );
 
     if (filtered.length > 0) {
@@ -36,30 +36,30 @@ export default class RandoML {
   }
 
   public choose() {
-    if (this.minMax() - this.settings.exclude!.length > 0) {
-      let unique = false;
+    if (this.minMax() - this.settings.exclude.length > 0) {
+      let isUnique = false;
 
       if (typeof this.callbacks.onChoice === 'function') {
         this.callbacks.onChoice();
       }
 
       do {
-        this.number = Math.floor(Math.random() * this.minMax()) + this.min;
+        this.value = Math.floor(Math.random() * this.minMax()) + this.min;
 
-        if (!this.isExcluded(true) && this.checkLength()) {
-          const array = this.settings.hold!;
+        if (!this.checkIsExcluded(true) && this.checkHoldLength()) {
+          const hold = this.settings.hold;
 
-          this.number = array[Math.floor(array.length * Math.random())];
+          this.value = hold[Math.floor(hold.length * Math.random())];
         }
 
-        unique = this.isExcluded(false);
-      } while (!unique);
+        isUnique = this.checkIsExcluded(false);
+      } while (!isUnique);
 
       if (typeof this.callbacks.onResult === 'function') {
         this.callbacks.onResult();
       }
 
-      return this.number;
+      return this.value;
     } else {
       if (typeof this.callbacks.onRangeEnd === 'function') {
         this.callbacks.onRangeEnd();
@@ -69,34 +69,45 @@ export default class RandoML {
 
   private minMax = () => this.max - this.min + 1;
 
-  private checkLength() {
-    return this.settings.hold && this.settings.hold.length > 0;
-  }
+  private checkHoldLength = () => this.settings.hold?.length > 0;
 
   private magicCount() {
     const date = new Date().getTime();
-    const exclude = this.settings.exclude!.length;
-    const hold = this.settings.hold!.length;
+    const exclude = this.settings.exclude.length;
+    const hold = this.settings.hold.length;
 
     return (this.minMax() - exclude + date) % hold === 0;
   }
 
-  private isExcluded(first: boolean) {
-    const duplicated = this.settings.exclude!.filter(
-      item => item === this.number
+  private checkIsExcluded(isFirstCheck: boolean) {
+    const duplicatedExcludedItems = this.settings.exclude.filter(
+      (item) => item === this.value
     );
 
-    let condition = duplicated.length === 0;
+    const isExcluded =
+      isFirstCheck && this.checkHoldLength() && this.magicCount();
 
-    const check = first && this.checkLength() && this.magicCount();
-
-    if (check) condition = !check;
-
-    return condition;
+    return isExcluded || duplicatedExcludedItems.length === 0;
   }
 
-  private extendSettings(settings: Settings): Settings {
-    const newSettings = {} as any;
+  public predict(trainings: Training[], numbers: number[]) {
+    let prediction: number[];
+
+    import('brain.js').then((brain) => {
+      const net = new brain.NeuralNetwork({
+        hiddenLayers: [3],
+      });
+
+      net.train(trainings);
+
+      prediction = net.run(numbers);
+    });
+
+    return prediction;
+  }
+
+  private extendSettings(settings: Settings): Required<Settings> {
+    const newSettings = {} as Record<keyof Settings, any>;
 
     let property: keyof Settings;
 
