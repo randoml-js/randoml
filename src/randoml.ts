@@ -1,6 +1,6 @@
 import type { Options, Settings, Callbacks, Training } from './types';
 
-import { defaultSettings } from './defaultSettings';
+import { defaultSettings } from './defaults';
 
 export default class RandoML {
   private settings: Settings;
