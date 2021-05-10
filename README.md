@@ -1,7 +1,11 @@
 # [RandoML](https://github.com/randoml-js/randoml)
 
-[![NPM version](http://img.shields.io/npm/v/randoml.svg?style=flat-square)](https://www.npmjs.com/package/randoml)
-[![NPM downloads](http://img.shields.io/npm/dm/randoml.svg?style=flat-square)](https://www.npmjs.com/package/randoml)
+[![NPM version](https://img.shields.io/npm/v/randoml?style=flat-square)](https://www.npmjs.com/package/randoml)
+[![NPM downloads](https://img.shields.io/npm/dm/randoml?style=flat-square)](https://www.npmjs.com/package/randoml)
+[![NPM license](https://img.shields.io/npm/l/randoml?style=flat-square)](https://www.npmjs.com/package/randoml)
+[![Codecov](https://img.shields.io/codecov/c/github/randoml-js/randoml?style=flat-square)](https://codecov.io/gh/randoml-js/randoml)
+[![Travis](https://img.shields.io/travis/com/randoml-js/randoml/master?style=flat-square)](https://travis-ci.com/randoml-js/randoml)
+[![Bundle size](https://img.shields.io/bundlephobia/min/randoml?style=flat-square)](https://bundlephobia.com/result?p=randoml)
 
 ## About
 
