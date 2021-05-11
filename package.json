@@ -21,12 +21,13 @@
     "url": "https://github.com/randoml-js/randoml.git"
   },
   "keywords": [
-    "TypeScript",
+    "machine-learning",
+    "library",
+    "typescript",
     "random",
     "number",
     "exclude",
-    "library",
-    "machine learning"
+    "number-priority"
   ],
   "bugs": {
     "url": "https://github.com/randoml-js/randoml/issues"
