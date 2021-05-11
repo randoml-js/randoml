@@ -19,12 +19,8 @@ export default class RandoML {
     this.max = Math.floor(this.settings.max);
 
     if (this.min > this.max) {
-      // TODO add callback
-      // TODO add custom error message prop
       throw 'The minimum value must be less than the maximum value';
     } else if (this.min === this.max) {
-      // TODO add callback
-      // TODO add custom error message prop
       throw 'The minimum and maximum values ​​must be different';
     }
 
@@ -33,8 +29,6 @@ export default class RandoML {
     );
 
     if (filtered.length > 0) {
-      // TODO add callback
-      // TODO add custom error message prop
       throw `${filtered.join(', ')} are out of range ${this.min}, ${this.max}`;
     }
   }
