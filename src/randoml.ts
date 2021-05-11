@@ -82,7 +82,8 @@ export default class RandoML {
     return isExcluded || duplicatedExcludedItems.length === 0;
   }
 
-  public predict(trainings: Training[], numbers: number[]) {
+  // TODO change to public predict
+  private _predict(trainings: Training[], numbers: number[]) {
     let prediction: number[];
 
     import('brain.js').then((brain) => {
