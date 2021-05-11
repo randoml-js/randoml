@@ -13,16 +13,18 @@ export default class RandoML {
     this.settings = this.extendSettings(data.settings || {});
     this.callbacks = data.callbacks || {};
 
-    if (typeof this.callbacks.onInit === 'function') {
-      this.callbacks.onInit();
-    }
+    this.callbacks.onInit?.();
 
     this.min = Math.ceil(this.settings.min);
     this.max = Math.floor(this.settings.max);
 
     if (this.min > this.max) {
+      // TODO add callback
+      // TODO add custom error message prop
       throw 'The minimum value must be less than the maximum value';
     } else if (this.min === this.max) {
+      // TODO add callback
+      // TODO add custom error message prop
       throw 'The minimum and maximum values ​​must be different';
     }
 
@@ -31,6 +33,8 @@ export default class RandoML {
     );
 
     if (filtered.length > 0) {
+      // TODO add callback
+      // TODO add custom error message prop
       throw `${filtered.join(', ')} are out of range ${this.min}, ${this.max}`;
     }
   }
@@ -39,9 +43,7 @@ export default class RandoML {
     if (this.minMax() - this.settings.exclude.length > 0) {
       let isUnique = false;
 
-      if (typeof this.callbacks.onChoice === 'function') {
-        this.callbacks.onChoice();
-      }
+      this.callbacks.onChoice?.();
 
       do {
         this.value = Math.floor(Math.random() * this.minMax()) + this.min;
@@ -55,15 +57,11 @@ export default class RandoML {
         isUnique = this.checkIsExcluded(false);
       } while (!isUnique);
 
-      if (typeof this.callbacks.onResult === 'function') {
-        this.callbacks.onResult();
-      }
+      this.callbacks.onResult?.();
 
       return this.value;
     } else {
-      if (typeof this.callbacks.onRangeEnd === 'function') {
-        this.callbacks.onRangeEnd();
-      }
+      this.callbacks.onRangeEnd?.();
     }
   }
 
@@ -107,7 +105,7 @@ export default class RandoML {
   }
 
   private extendSettings(settings: Settings): Required<Settings> {
-    const newSettings = {} as Record<keyof Settings, any>;
+    const newSettings = {} as Record<keyof Settings, Settings[keyof Settings]>;
 
     let property: keyof Settings;
 
@@ -119,6 +117,6 @@ export default class RandoML {
       }
     }
 
-    return newSettings;
+    return newSettings as Required<Settings>;
   }
 }
