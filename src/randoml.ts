@@ -1,6 +1,6 @@
 import type { Options, Settings, Callbacks, Training } from './types';
 
-import { defaultSettings } from './defaults';
+import { defaultSettings } from './defaultSettings';
 
 export default class RandoML {
   private settings: Settings;
@@ -14,7 +14,7 @@ export default class RandoML {
     this.callbacks = data.callbacks || {};
 
     this.callbacks.onInit?.();
-    
+
     this.min = Math.ceil(this.settings.min);
     this.max = Math.floor(this.settings.max);
 
