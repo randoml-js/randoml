@@ -1,6 +1,6 @@
 export type Callbacks = {
-  readonly onInit?: () => void;
-  readonly onChoice?: () => void;
-  readonly onResult?: () => void;
-  readonly onRangeEnd?: () => void;
+  onInit?: () => void;
+  onChoice?: () => void;
+  onResult?: () => void;
+  onRangeEnd?: () => void;
 };
