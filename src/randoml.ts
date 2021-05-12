@@ -83,7 +83,7 @@ export default class RandoML {
   }
 
   // TODO change to public predict
-  private _predict(trainings: Training[], numbers: number[]) {
+  public static _predict(trainings: Training[], numbers: number[]) {
     let prediction: number[];
 
     import('brain.js').then((brain) => {
