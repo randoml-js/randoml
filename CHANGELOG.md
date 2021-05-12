@@ -1,6 +1,6 @@
 # RandoML Changelog
 
-## 2.0.0 (2020-xx-xx)
+## 2.0.0 (2021-xx-xx)
 
 #### New Feature
 
