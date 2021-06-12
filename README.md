@@ -25,7 +25,8 @@ Or Yarn:
 $ yarn add randoml
 ```
 
-**You can also connect script via one of CDNs:**<br>
+**You can also connect script via one of CDNs:**
+
 - [bundle.run](https://bundle.run/randoml)
 - [jsDelivr](https://cdn.jsdelivr.net/npm/randoml/)
 - [unpkg](https://unpkg.com/randoml/)
