@@ -26,9 +26,9 @@ $ yarn add randoml
 ```
 
 **You can also connect script via one of CDNs:**<br>
-bundle.run: `https://bundle.run/randoml`<br>
-jsDelivr: `https://cdn.jsdelivr.net/npm/randoml/`<br>
-unpkg: `https://unpkg.com/randoml/`
+- [bundle.run](https://bundle.run/randoml)
+- [jsDelivr](https://cdn.jsdelivr.net/npm/randoml/)
+- [unpkg](https://unpkg.com/randoml/)
 
 ## Getting Started
 
