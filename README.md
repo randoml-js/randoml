@@ -13,7 +13,7 @@ RandoML is a random number library with option to disable or increase number pri
 
 ### React Plugin
 
-If you use React, install component with the **[implementation of the RandoML library](https://github.com/randoml-js/react-randoml/)**!
+If you use React, install **[dedicated module with the implementation of the RandoML library](https://github.com/randoml-js/react-randoml/)**!
 
 ## How to Install
 
