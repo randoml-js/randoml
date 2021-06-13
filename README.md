@@ -11,6 +11,10 @@
 
 RandoML is a random number library with option to disable or increase number priority.
 
+### React Plugin
+
+If you use React, install component with the **[implementation of the RandoML library](https://github.com/randoml-js/react-randoml/)**!
+
 ## How to Install
 
 First, install the library in your project by npm:
