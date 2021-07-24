@@ -1,7 +1,7 @@
 import { Settings } from './Settings';
 import { Callbacks } from './Callbacks';
 
-export type Options = {
+export interface Options {
   readonly settings?: Settings;
   readonly callbacks?: Callbacks;
-};
+}
