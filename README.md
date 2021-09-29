@@ -29,7 +29,7 @@ Or Yarn:
 $ yarn add randoml
 ```
 
-**You can also connect script via one of CDNs:**
+**You can also connect the script via one of the CDNs:**
 
 - [bundle.run](https://bundle.run/randoml)
 - [jsDelivr](https://cdn.jsdelivr.net/npm/randoml/)
@@ -55,7 +55,7 @@ import RandoML from 'randoml';
 const RandoML = require('randoml');
 ```
 
-Next use library:
+Next use the library:
 
 ```js
 const random = new RandoML({
@@ -70,15 +70,11 @@ const random = new RandoML({
 
 ## Methods
 
-<!-- TODO? bull to unicode -->
-
 **&bull; Choose:**
 
 ```js
 random.choose();
 ```
-
-<!-- TODO? bull to unicode -->
 
 **&bull; Predict (Available Soon):**
 
@@ -92,21 +88,19 @@ random.predict(/* trainings */, /* numbers */);
 
 | Name        | Type     | Default | Description                                       | Available options                               |
 | ----------- | -------- | ------- | ------------------------------------------------- | ----------------------------------------------- |
-| **min**     | number   | `1`     | minimum random value                              | number (smaller than `max`)                     |
-| **max**     | number   | `15`    | maximum random value                              | number (bigger than `min`)                      |
-| **exclude** | number[] | `null`  | numbers excluded from choice                      | array of numbers (in range between min and max) |
-| **hold**    | number[] | `null`  | numbers with higher priority (bigger possibility) | array of numbers (in range between min and max) |
+| **min**     | number   | `1`     | Minimum random value                              | number (smaller than `max`)                     |
+| **max**     | number   | `15`    | Maximum random value                              | number (bigger than `min`)                      |
+| **exclude** | number[] | `null`  | Numbers excluded from choice                      | array of numbers (in range between min and max) |
+| **hold**    | number[] | `null`  | Numbers with higher priority (bigger possibility) | array of numbers (in range between min and max) |
 
 ### Callbacks
 
-<!-- TODO add cols -->
-
 | Name           | Description                     | Available options      |
 | -------------- | ------------------------------- | ---------------------- |
-| **onInit**     | callback on library init        | `() => { /* code */ }` |
-| **onChoice**   | callback on number choice       | `() => { /* code */ }` |
-| **onResult**   | callback on choice result       | `() => { /* code */ }` |
-| **onRangeEnd** | callback when range length is 0 | `() => { /* code */ }` |
+| **onInit**     | Callback on library init        | `() => { /* code */ }` |
+| **onChoice**   | Callback on number choice       | `() => { /* code */ }` |
+| **onResult**   | Callback on choice result       | `() => { /* code */ }` |
+| **onRangeEnd** | Callback when range length is 0 | `() => { /* code */ }` |
 
 ## License
 

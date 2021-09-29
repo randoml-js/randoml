@@ -1,7 +1,7 @@
 import RandoML from '../src';
 
 describe('callbacks', () => {
-  it('it should call onInit', () => {
+  it('should call onInit', () => {
     const onInit = jest.fn();
 
     new RandoML({
@@ -13,7 +13,7 @@ describe('callbacks', () => {
     expect(onInit).toHaveBeenCalled();
   });
 
-  it('it should call onChoice and onResult', () => {
+  it('should call onChoice and onResult', () => {
     const onChoice = jest.fn();
     const onResult = jest.fn();
 
@@ -30,7 +30,7 @@ describe('callbacks', () => {
     expect(onResult).toHaveBeenCalled();
   });
 
-  it('it should call onRangeEnd', () => {
+  it('should call onRangeEnd', () => {
     const onRangeEnd = jest.fn();
 
     const rand = new RandoML({

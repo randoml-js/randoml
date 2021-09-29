@@ -19,5 +19,5 @@ export default {
     },
   ],
   plugins: [resolve(), typescript(), terser()],
-  external: Object.keys(pkg.dependencies || {}), // TODO || -> ??
+  external: Object.keys(pkg.dependencies || {}),
 };
