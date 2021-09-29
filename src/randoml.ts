@@ -2,6 +2,7 @@ import type { Options, Settings, Callbacks, Training } from './types';
 
 import { defaultSettings } from './defaultSettings';
 
+// TODO? move back to index
 export default class RandoML {
   private settings: Settings;
   private callbacks: Callbacks;
@@ -10,8 +11,8 @@ export default class RandoML {
   private value?: number;
 
   constructor(data = {} as Options) {
-    this.settings = this.extendSettings(data.settings || {});
-    this.callbacks = data.callbacks || {};
+    this.settings = this.extendSettings(data.settings || {}); // TODO? || -> ??
+    this.callbacks = data.callbacks || {}; // TODO? || -> ??
 
     this.callbacks.onInit?.();
 
@@ -25,7 +26,7 @@ export default class RandoML {
     }
 
     const filtered = this.settings.hold.filter(
-      (item) => item < this.min || item > this.max
+      (item) => item < this.min || item > this.max // TODO? || -> ??
     );
 
     if (filtered.length > 0) {
@@ -79,7 +80,7 @@ export default class RandoML {
     const isExcluded =
       isFirstCheck && this.checkHoldLength() && this.magicCount();
 
-    return isExcluded || duplicatedExcludedItems.length === 0;
+    return isExcluded || duplicatedExcludedItems.length === 0; // TODO? || -> ??
   }
 
   // TODO change to public predict

@@ -41,7 +41,7 @@ describe('core functions', () => {
     expect(rand.choose()).toBe(undefined);
   });
 
-  it('should throw an error for icorrect min and max values', () => {
+  it('should throw an error for incorrect min and max values', () => {
     expect(() => {
       new RandoML({
         settings: {

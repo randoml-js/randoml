@@ -37,7 +37,7 @@
 
 - fixed bug when props are empty
 
-#### Repositiory Changes
+#### Repository Changes
 
 - added Travis CI
 
